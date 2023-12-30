@@ -39,19 +39,20 @@ import           Text.PrettyPrint.Mainland
 subscriberImportLines :: Map Text ImportLine
 subscriberImportLines = importsFromList
   [
-    ImportLine "Servant.Subscriber.Subscriptions" (Set.fromList [ "Subscriptions"
-                                                                , "makeSubscriptions"
-                                                                ])
-  , ImportLine "Servant.Subscriber.Util" (Set.fromList [ "toUserType"
-                                                       , "subGenNormalQuery"
-                                                       , "subGenListQuery"
-                                                       , "subGenFlagQuery"
-                                                       , "TypedToUser"
-                                                       ])
-  , ImportLine "Servant.Subscriber" (Set.fromList ["ToUserType"])
-  , ImportLine "Servant.Subscriber.Request" (Set.fromList ["HttpRequest(..)"])
-  , ImportLine "Servant.Subscriber.Types" (Set.fromList ["Path(..)"])
-  , ImportLine "Data.Tuple" (Set.fromList ["Tuple(..)"])
+    ImportLine "Servant.Subscriber.Subscriptions" Nothing (Set.fromList [ "Subscriptions"
+                                                                        , "makeSubscriptions"
+                                                                        ])
+  , ImportLine "Servant.Subscriber.Util" Nothing 
+      (Set.fromList [ "toUserType"
+                    , "subGenNormalQuery"
+                    , "subGenListQuery"
+                    , "subGenFlagQuery"
+                    , "TypedToUser"
+                    ])
+  , ImportLine "Servant.Subscriber" Nothing (Set.fromList ["ToUserType"])
+  , ImportLine "Servant.Subscriber.Request" Nothing (Set.fromList ["HttpRequest(..)"])
+  , ImportLine "Servant.Subscriber.Types" Nothing (Set.fromList ["Path(..)"])
+  , ImportLine "Data.Tuple" Nothing (Set.fromList ["Tuple(..)"])
   ]
 
 genModule :: Settings -> [Req PSType] -> Doc
@@ -60,7 +61,7 @@ genModule opts reqs = let
     rParams    = getReaderParams opts allParams
     apiImports = reqsToImportLines reqs
     webAPIImports = importsFromList [
-        ImportLine (opts ^. apiModuleName) (Set.fromList ["SPParams_(..)"])
+        ImportLine (opts ^. apiModuleName) Nothing (Set.fromList ["SPParams_(..)"])
       ]
     imports    = _standardImports opts
                   `mergeImportLines` apiImports

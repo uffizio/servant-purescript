@@ -1,5 +1,5 @@
 name:                servant-purescript
-version:             0.9.0.4
+version:             0.10.0.0
 synopsis:            Generate PureScript accessor functions for your Servant API
 description:         Generate PureScript accessor functions for your Servant API; see README.md
 homepage:            https://github.com/eskimor/servant-purescript#readme
@@ -15,7 +15,7 @@ cabal-version:       >=1.10
 
 extra-source-files: Readme.md
 
-tested-with: GHC==9.0.2, GHC==8.10.7, GHC==8.8.4
+tested-with: GHC==9.4.8, GHC==9.0.2, GHC==8.10.7, GHC==8.8.4
 
 library
   hs-source-dirs:      src
@@ -27,8 +27,9 @@ library
                      , Servant.API.BrowserHeader
 
 --  other-modules:       Main
-  build-depends:       base >= 4.7 && < 4.16
-                     , aeson >= 0.11.2
+  build-depends:       base >= 4.7 && < 4.18
+                     , aeson >= 2.1
+                     , attoparsec-aeson
                      , bytestring
                      , containers
                      , directory
@@ -50,7 +51,8 @@ test-suite servant-purescript-test
   hs-source-dirs:      test
   main-is:             Spec.hs
   build-depends:       base
-                     , aeson >= 0.11.2
+                     , aeson >= 0.2.1
+                     , attoparsec-aeson
                      , containers
                      , mainland-pretty
                      , lens

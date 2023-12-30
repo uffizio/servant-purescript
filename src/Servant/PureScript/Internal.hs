@@ -95,19 +95,19 @@ defaultSettings = Settings {
     _apiModuleName    = "ServerAPI"
   , _readerParams     = Set.singleton baseURLId
   , _standardImports = importsFromList
-        [ ImportLine "Control.Monad.Reader.Class" (Set.fromList [ "class MonadAsk", "ask" ])
-        , ImportLine "Control.Monad.Error.Class" (Set.fromList [ "class MonadError" ])
-        , ImportLine "Control.Monad.Aff.Class" (Set.fromList [ "class MonadAff" ])
-        , ImportLine "Network.HTTP.Affjax" (Set.fromList [ "AJAX" ])
-        , ImportLine "Data.Nullable" (Set.fromList [ "toNullable" ])
-        , ImportLine "Servant.PureScript.Affjax" (Set.fromList [ "AjaxError", "defaultRequest", "affjax" ])
-        , ImportLine "Servant.PureScript.Settings" (Set.fromList [ "SPSettings_(..)", "SPSettingsDecodeJson_(..)", "SPSettingsEncodeJson_(..)", "gDefaultToURLPiece" ])
-        , ImportLine "Servant.PureScript.Util" (Set.fromList [ "encodeListQuery", "encodeURLPiece", "encodeQueryItem", "getResult", "encodeHeader" ])
-        , ImportLine "Prim" (Set.fromList [ "String" ]) -- For baseURL!
-        , ImportLine "Data.Maybe" (Set.fromList [ "Maybe(..)"])
-        , ImportLine "Data.String" (Set.fromList ["joinWith"])
-        , ImportLine "Data.Array" (Set.fromList ["catMaybes", "null"])
-        , ImportLine "Data.Argonaut.Core" (Set.fromList [ "stringify" ])
+        [ ImportLine "Control.Monad.Reader.Class" Nothing (Set.fromList [ "class MonadAsk", "ask" ])
+        , ImportLine "Control.Monad.Error.Class" Nothing (Set.fromList [ "class MonadError" ])
+        , ImportLine "Control.Monad.Aff.Class" Nothing (Set.fromList [ "class MonadAff" ])
+        , ImportLine "Network.HTTP.Affjax" Nothing (Set.fromList [ "AJAX" ])
+        , ImportLine "Data.Nullable" Nothing (Set.fromList [ "toNullable" ])
+        , ImportLine "Servant.PureScript.Affjax" Nothing (Set.fromList [ "AjaxError", "defaultRequest", "affjax" ])
+        , ImportLine "Servant.PureScript.Settings" Nothing (Set.fromList [ "SPSettings_(..)", "SPSettingsDecodeJson_(..)", "SPSettingsEncodeJson_(..)", "gDefaultToURLPiece" ])
+        , ImportLine "Servant.PureScript.Util" Nothing (Set.fromList [ "encodeListQuery", "encodeURLPiece", "encodeQueryItem", "getResult", "encodeHeader" ])
+        , ImportLine "Prim" Nothing (Set.fromList [ "String" ]) -- For baseURL!
+        , ImportLine "Data.Maybe" Nothing (Set.fromList [ "Maybe(..)"])
+        , ImportLine "Data.String" Nothing (Set.fromList ["joinWith"])
+        , ImportLine "Data.Array" Nothing (Set.fromList ["catMaybes", "null"])
+        , ImportLine "Data.Argonaut.Core" Nothing (Set.fromList [ "stringify" ])
         ]
   , _generateSubscriberAPI = False
   }

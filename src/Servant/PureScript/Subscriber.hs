@@ -41,7 +41,7 @@ genModule opts allReqs = let
     rParams    = getReaderParams opts allParams
     apiImports = reqsToImportLines reqs
     webAPIImports = importsFromList [
-        ImportLine (opts ^. apiModuleName) (Set.fromList ["SPParams_(..)"])
+        ImportLine (opts ^. apiModuleName) Nothing (Set.fromList ["SPParams_(..)"])
       ]
     imports    = _standardImports opts
                   `mergeImportLines` apiImports
